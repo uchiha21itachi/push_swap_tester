@@ -26,6 +26,6 @@ fclean: clean
 
 cleanall: fclean
 	rm output*
-	rm checker_linux
+	rm checker_Mac
 	rm push_swap 
 
