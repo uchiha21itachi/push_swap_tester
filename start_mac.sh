@@ -6,6 +6,7 @@ blue=\\033[94m
 green=\\033[92m
 red=\\033[91m
 beige=\\033[9m
+checker=checker_Mac
 # Reading the path to push_swap and checker
 printf "\n\n\n\n\n" 
 echo -e "$blue Please enter the relative path to push swap executable\n"
@@ -15,9 +16,9 @@ echo -e "$blue"
 
 # Copying and Giving the executable permissions
 cp $path_to_ps/push_swap .
-cp $path_to_ps/checker_Mac .
+cp $path_to_ps/$checker .
 chmod +x push_swap
-chmod +x checker_Mac
+chmod +x $checker
 
 
 # Main loop to process everything 
@@ -34,7 +35,7 @@ do
         do
             ARG=`ruby -e "puts (1..$i).to_a.shuffle.join(' ')"`
             ./push_swap $ARG | wc -l >> output$i
-            ./push_swap $ARG | ./checker_Mac $ARG >> outputsort$i
+            ./push_swap $ARG | ./$checker $ARG >> outputsort$i
         done
         echo -e "Number of $green ARGS - [$i]" >> FinOut
         echo -e "$blue" >> FinOut
